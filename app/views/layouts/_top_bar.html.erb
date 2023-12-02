@@ -1,0 +1,14 @@
+<div class="login_logout_details">
+    <% if user_signed_in? %>
+      <span class="login_detail">Logged in as: <%=current_user.email%></span>
+      <span class="top_bar_link">
+        <%= link_to('Home', root_path, class: 'white_link')%>
+      </span>
+      <span class="top_bar_link">
+        <%= link_to('Edit Profile', edit_user_registration_path, class: 'white_link')%>
+      </span>
+      <span class="top_bar_link">
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'white_link') %>
+      </span>
+    <%end%>
+</div>
