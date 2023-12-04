@@ -8,6 +8,10 @@ class BooksController < ApplicationController
     else
       @books.order(:id)
     end
+    respond_to do |format|
+      format.html
+      format.json { render json: { books: @books } }
+    end
   end
 
   def new
