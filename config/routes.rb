@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root to: "home#index"
   #-----book------
   resources :books
+  get 'publish_or_unpublish' => 'books#publish_or_unpublish', as: 'publish_or_unpublish'
 end

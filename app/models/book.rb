@@ -12,6 +12,14 @@ class Book < ApplicationRecord
 
   SORT_ODR = [["Ascending","ASC"],["Descending","DESC"]]
 
+  def publish_book
+    update_attributes(:publish_status => true)
+  end
+
+  def unpublish_book
+    update_attributes(:publish_status => false)
+  end
+
   def self.search(search)
     joins(:category).where("book_name LIKE ? or author LIKE ? or isbn LIKE ? or categories.name LIKE ?", "%#{search}%","%#{search}%","%#{search}%","%#{search}%")
   end

@@ -8,7 +8,7 @@
         <th>ISBN</th>
         <th>Price (£)</th>
         <th>Category</th>
-        <th>Created By</th>
+        <th>Available count</th>
       </tr>
     </thead>
     <tbody>
@@ -33,7 +33,7 @@
           <%=book.category&.name%>
         </td>
         <td>
-          <%=current_user.email%>
+          <%=book&.available_count%>
         </td>
       </tr>
       <%end %>

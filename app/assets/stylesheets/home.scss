@@ -11,7 +11,9 @@
                       height: 900px;
                       width: 15%;}
 .active {color:red;}
-.breadcrumb_style {background: #27a9eb;
+.breadcrumb_style {width: 85%;
+                  float: left;
+                  background: #27a9eb;
                   color:#FFF;
                   height: 44px;
                   padding: 7px;}
@@ -51,9 +53,11 @@
 }
 
 .rounded{margin-top:5px;margin-bottom:5px;margin-right:5px;margin-left: 20px;}
+
 .noRecords{margin-top:15%;margin-bottom:20%;}
 
 .sort_class{width:10%;padding:5px;font-weight:bold;text-align:right;}
+
 .nav{margin-bottom: 3%;margin-top: 3%;}
 
 .search_class{margin-left:3%;}

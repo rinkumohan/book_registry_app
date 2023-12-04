@@ -4,7 +4,12 @@
     <div class="row"><%= form.text_field :author, class: "form-control", placeholder: "Author" %></div>
     <div class="row"><%= form.text_field :isbn, class: "form-control", placeholder: "ISBN" %></div>
     <div class="row"><%= form.number_field :price, class: "form-control", placeholder: "Price"%></div>
-    <div class="row"><%= form.select :category_id, options_for_select(Category.all.pluck(:name, :id)),  {prompt: 'Select Category'}, {class: 'categoryDropdown'} %></div>
+    <div class="row">
+      <%= form.select :category_id, options_for_select(Category.all.pluck(:name, :id)),  {prompt: 'Select Category'}, {class: 'categoryDropdown'} %>
+    </div>
+    <div class="row">
+      <%= form.number_field :available_count, class: "form-control", placeholder: "Available count", step: 1%>
+    </div>
     <div class="row">
       <%= form.submit "Submit", :class=>"btn btn-warning" %>
       <%=link_to books_path do %><span class="btn btn-warning" style="margin-left: 10px;">Cancel</span><%end%>
