@@ -46,3 +46,35 @@ if ActiveRecord::Base.connection.table_exists? 'categories'
     end
   end
 end
+
+if ActiveRecord::Base.connection.table_exists? 'books'
+  if Book.all.blank?
+    ActiveRecord::Base.connection.execute 'ALTER TABLE books AUTO_INCREMENT = 1;'
+      user_id = User.last.id
+      books = [ { book_name: 'Wings of Fire', author: 'Dr. Abdul Kalam', isbn: 3462774627, price: 30,
+                 category_id: 1, user_id: user_id },
+                { book_name: 'Pride and Prejudice', author: 'Jane Austen', isbn: 9780141439518, price: 25, category_id: 2, user_id: user_id },
+                { book_name: 'The Girl with the Dragon Tattoo', author: 'Stieg Larsson', isbn: 9780307454546, price: 35, category_id: 3, user_id: user_id },
+                { book_name: 'Alice in Wonderland', author: 'Lewis Carroll', isbn: 9780141439761, price: 20, category_id: 4, user_id: user_id },
+                { book_name: 'The Hobbit', author: 'J.R.R. Tolkien', isbn: 9780547928227, price: 40, category_id: 5, user_id: user_id },
+                { book_name: 'To Kill a Mockingbird', author: 'Harper Lee', isbn: 9780061120084, price: 28, category_id: 6, user_id: user_id },
+                { book_name: 'Frankenstein', author: 'Mary Shelley', isbn: 9780486282114, price: 32, category_id: 7, user_id: user_id },
+                { book_name: 'Catch-22', author: 'Joseph Heller', isbn: 9780684833392, price: 36, category_id: 8, user_id: user_id },
+                { book_name: '1984', author: 'George Orwell', isbn: 9780451524935, price: 30, category_id: 9, user_id: user_id },
+                { book_name: 'The Maltese Falcon', author: 'Dashiell Hammett', isbn: 9780679722649, price: 22, category_id: 10, user_id: user_id },
+                { book_name: 'The Raven', author: 'Edgar Allan Poe', isbn: 9781480015069, price: 18, category_id: 11, user_id: user_id },
+                { book_name: 'Romeo and Juliet', author: 'William Shakespeare', isbn: 9780743477116, price: 24, category_id: 12, user_id: user_id },
+                { book_name: 'Pride and Prejudice', author: 'Jane Austen', isbn: 9780141439518, price: 25, category_id: 13, user_id: user_id },
+                { book_name: 'Dune', author: 'Frank Herbert', isbn: 9780441172719, price: 38, category_id: 14, user_id: user_id },
+                { book_name: 'The Tell-Tale Heart', author: 'Edgar Allan Poe', isbn: 9780679722649, price: 18, category_id: 15, user_id: user_id },
+                { book_name: 'The Da Vinci Code', author: 'Dan Brown', isbn: 9780307474278, price: 42, category_id: 16, user_id: user_id },
+                { book_name: 'War and Peace', author: 'Leo Tolstoy', isbn: 9781400079988, price: 45, category_id: 17, user_id: user_id },
+                { book_name: 'Little Women', author: 'Louisa May Alcott', isbn: 9780147514011, price: 26, category_id: 18, user_id: user_id },
+                { book_name: 'Harry Potter and the Sorcerer\'s Stone', author: 'J.K. Rowling', isbn: 9780590353403, price: 34, category_id: 19, user_id: user_id }
+              ]
+
+    books.each do |book|
+      Book.create(book)
+    end
+  end
+end

@@ -2,3 +2,12 @@
   <span class="fa fa-home"></span> /<span class="active">Dashboard</span>
 </div>
 
+<%=form_tag  root_path, method: :get, id: 'home_index_form' ,:class=>"basic-form no-padding"  do %>
+  <div class="published_books">
+    Published Books
+  </div>
+<%end%>
+
+<div class="index_list_page">
+ <%= render "home_books_list"%>
+</div>

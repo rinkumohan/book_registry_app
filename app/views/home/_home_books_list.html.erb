@@ -1,0 +1,44 @@
+<%if !@books.blank?%>
+  <table class="table table-bordered table-striped table-condensed cf">
+    <thead class="cf">
+      <tr style="width:100%;">
+    <th>Id</th>
+        <th>Book Name</th>
+        <th>Author</th>
+        <th>ISBN</th>
+        <th>Price (£)</th>
+        <th>Category</th>
+        <th>Created By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@books.each_with_index do |book| %>
+      <tr>
+        <td>
+          <%=book.id%>
+        </td>
+        <td>
+          <%=book.book_name%>
+        </td>
+        <td>
+          <%=book.author%>
+        </td>
+        <td>
+          <%=book.isbn%>
+        </td>
+        <td>
+          <%=book.price%>
+        </td>
+       <td>
+          <%=book.category&.name%>
+        </td>
+        <td>
+          <%=current_user.email%>
+        </td>
+      </tr>
+      <%end %>
+    </tbody>
+  </table>
+<%else%>
+    <div class="noRecords"><span class="fa fa-info-circle"></span> No Books Found</div>
+<%end%>

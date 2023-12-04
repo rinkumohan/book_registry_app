@@ -1,0 +1,23 @@
+<div class="breadcrumbs breadcrumb_style">
+    <span class="fa fa-home"></span> /Books/<span class="active">Index</span>
+</div>
+
+<%=form_tag  books_path, method: :get, id: 'book_index_form' ,:class=>"basic-form no-padding"  do %>
+  <div class="nav">
+      <%= link_to "Add Books",new_book_path, :class => "btn rounded btn-primary"%>
+    <span class="sort_class">Sort on</span> <%= select_tag :sort_on, options_for_select(Book::BOOK_SORT),class:"input_box_style"%>
+    <span class="sort_class">Sort by </span><%= select_tag :sort_by, options_for_select(Book::SORT_ODR),class:"input_box_style"%>
+      <span class="search_class">
+      <%= text_field_tag :search, params[:search] , placeholder: "book name/author/isbn/category"%>
+          <%= submit_tag "Search", :name => nil %>
+    </span>
+  </div>
+<%end%>
+
+<% if !@books.blank? %>
+    <div id="books_list" style="width:85%;float: left;">
+        <%= render "books_list"%>
+    </div>
+<%else%>
+    <div class="noRecords"><span class="fa fa-info-circle"></span> No Books Found</div>
+<%end%>

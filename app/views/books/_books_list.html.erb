@@ -1,0 +1,27 @@
+<table class="table table-bordered table-striped table-condensed cf">
+  <%= render "book_table_header"%>
+  <tbody>
+    <%@books.each_with_index do |book| %>
+      <tr>
+        <td>
+          <%=book.id%>
+        </td>
+        <td>
+          <%=book.book_name%>
+        </td>
+        <td>
+          <%=book.author%>
+        </td>
+        <td>
+          <%=book.isbn%>
+        </td>
+        <td>
+          <%=book.price%>
+        </td>
+        <td>
+          <%=book.category&.name%>
+        </td>
+      </tr>
+    <%end %>
+  </tbody>
+</table>

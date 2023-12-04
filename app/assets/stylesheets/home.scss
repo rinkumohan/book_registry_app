@@ -22,4 +22,38 @@
               color: white;
               font-weight: bold;}
 
+.form-style{float:left; width: 50%; margin-left: 25%; padding-top:20px;}
 
+.page-form {
+  float:left;
+  width:100%;
+  .row{float:left;
+       width: 100%;
+       padding:10px 0 10px 0;
+      }
+}
+
+.top_bar_link {
+  float: left;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.white_link {
+  color: white;
+}
+
+.index_list_page {
+  float: left;
+  width: 85%;
+}
+
+.rounded{margin-top:5px;margin-bottom:5px;margin-right:5px;margin-left: 20px;}
+.noRecords{margin-top:15%;margin-bottom:20%;}
+
+.sort_class{width:10%;padding:5px;font-weight:bold;text-align:right;}
+.nav{margin-bottom: 3%;margin-top: 3%;}
+
+.search_class{margin-left:3%;}
