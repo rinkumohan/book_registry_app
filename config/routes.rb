@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :tokens
+
   #-----book------
   resources :books
-  get 'publish_or_unpublish' => 'books#publish_or_unpublish', as: 'publish_or_unpublish'
+  get 'publish_book' => 'books#publish_book', as: 'publish_book'
+  get 'unpublish_book' => 'books#unpublish_book', as: 'unpublish_book'
+
+  #-----Category------
+  resources :categories
 end

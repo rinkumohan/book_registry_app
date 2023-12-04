@@ -23,9 +23,9 @@
         </td>
         <td>
           <%if book.publish_status%>
-            <%= link_to "Unpublish",publish_or_unpublish_path(:id=> book.id),:class => "btn btn-primary"%>
+            <%= link_to "Unpublish",unpublish_book_path(:id=> book.id),:class => "btn btn-primary"%>
           <%else%>
-           <%= link_to "Publish",publish_or_unpublish_path(:id=> book.id), :class => "btn btn-primary"%>
+           <%= link_to "Publish",publish_book_path(:id=> book.id), :class => "btn btn-primary"%>
           <%end%>
         </td>
           <%= render "action_buttons",book: book%>
