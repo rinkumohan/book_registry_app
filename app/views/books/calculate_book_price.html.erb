@@ -1,0 +1,35 @@
+ <h2>Book Invoice</h2>
+<table class="table table-bordered cf" style="width: 85%; float: left;">
+  <tr>
+    <th>Book Name</th>
+    <td><%=@book.book_name%></td>
+  </tr>
+  <tr>
+    <th>Category</th>
+    <td><%=@book.category&.name%></td>
+  </tr>
+  <tr>
+    <th>Author</th>
+    <td><%=@book.author%></td>
+  </tr>
+  <tr>
+    <th>ISBN</th>
+    <td><%=@book.isbn%></td>
+  </tr>
+  <tr>
+    <th>Price</th>
+    <td>£<%=@book.price%></td>
+  </tr>
+  <tr>
+    <th>VAT percentage</th>
+    <td><%=@price_details[:vat_percentage]%></td>
+  </tr>
+  <tr>
+    <th>VAT amount</th>
+    <td>£<%=@price_details[:vat_amount]%></td>
+  </tr>
+  <tr>
+    <th>Total</th>
+    <td>£<%=@price_details[:total_amount]%></td>
+  </tr>
+</table>

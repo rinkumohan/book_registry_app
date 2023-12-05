@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-  before_action :find_book, only: [:edit,:update,:destroy,:publish_book, :unpublish_book]
+  before_action :find_book, only: [:edit,:update,:destroy,:publish_book, :unpublish_book,
+                                   :calculate_book_price]
   before_action :find_all_books, only: [:index]
 
   def index
@@ -104,6 +105,14 @@ class BooksController < ApplicationController
         format.html {redirect_to books_path}
         format.json { render json: { message: 'Book is already unpublished', book: book, status: 401 } }
       end
+    end
+  end
+
+  def calculate_book_price
+    @price_details = @book.calculate_price
+    respond_to do |format|
+      format.html
+      format.json { render json: { message: 'Successfully calculated book price', price_details: price_details, status: 200 } }
     end
   end
 

@@ -12,12 +12,20 @@ class Book < ApplicationRecord
 
   SORT_ODR = [["Ascending","ASC"],["Descending","DESC"]]
 
+  VAT = 0.20
+
   def publish_book
     update_attributes(:publish_status => true)
   end
 
   def unpublish_book
     update_attributes(:publish_status => false)
+  end
+
+  def calculate_price
+    vat_amount = (price * VAT).round(2)
+    total_amount = (price + vat_amount).round(2)
+    details = {price: price, vat_percentage: "#{VAT*100}%", vat_amount: vat_amount, total_amount: total_amount}
   end
 
   def self.search(search)
