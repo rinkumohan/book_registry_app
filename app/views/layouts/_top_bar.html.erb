@@ -13,5 +13,9 @@
       <span class="top_bar_link">
         <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'white_link') %>
       </span>
+    <%else%>
+       <span class="top_bar_link">
+        <%= link_to('Sign in', new_user_session_path, class: 'white_link') %>
+      </span>
     <%end%>
 </div>
