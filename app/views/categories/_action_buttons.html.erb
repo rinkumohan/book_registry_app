@@ -1,0 +1,10 @@
+<td>
+  <%=link_to edit_category_path(category.id) do%>
+    <span class="fa fa-edit edit_icon"></span>
+  <%end%>
+</td>
+<td>
+  <%=link_to category_path(category.id), method: :delete do%>
+    <span class="fa fa-trash delete_icon"></span>
+  <%end%>
+</td>

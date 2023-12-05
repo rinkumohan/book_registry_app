@@ -11,7 +11,8 @@ class BooksController < ApplicationController
     end
     respond_to do |format|
       format.html
-      format.json { render json: { books: @books } }
+      format.js
+      format.json { render json: { message: "Successful", books: @books, status:200 } }
     end
   end
 

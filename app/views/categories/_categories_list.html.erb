@@ -1,0 +1,16 @@
+<table class="table table-bordered table-striped table-condensed cf">
+  <%= render "categories_table_header"%>
+  <tbody>
+    <%@categories.each_with_index do |category| %>
+      <tr>
+        <td>
+          <%=category.id%>
+        </td>
+        <td>
+          <%=category.name%>
+        </td>
+        <%= render "action_buttons",category: category%>
+      </tr>
+    <%end %>
+  </tbody>
+</table>

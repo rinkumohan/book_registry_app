@@ -1,0 +1,23 @@
+<div class="breadcrumbs breadcrumb_style">
+    <span class="fa fa-home"></span> /Categories/<span class="active">Index</span>
+</div>
+
+<%=form_tag  categories_path, method: :get, id: 'categories_index_form' ,:class=>"basic-form no-padding"  do %>
+  <div class="nav">
+    <%= link_to "Add Category",new_category_path, :class => "btn rounded btn-primary"%>
+    <span class="sort_class">Sort on</span> <%= select_tag :sort_on, options_for_select(Category::CATEGORY_SORT),class:"input_box_style"%>
+    <span class="sort_class">Sort by </span><%= select_tag :sort_by, options_for_select(Category::SORT_ODR),class:"input_box_style"%>
+      <span class="search_class">
+      <%= text_field_tag :search, params[:search] , placeholder: "category"%>
+          <%= submit_tag "Search", :name => nil %>
+    </span>
+  </div>
+<%end%>
+
+<% if !@categories.blank? %>
+  <div id="category_list" style="width:85%;float: left;">
+    <%= render "categories_list"%>
+  </div>
+<%else%>
+  <div class="noRecords"><span class="fa fa-info-circle"></span> No categories Found</div>
+<%end%>
