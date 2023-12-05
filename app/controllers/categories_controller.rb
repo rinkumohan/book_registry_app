@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
     end
     respond_to do |format|
       format.html
+      format.js
       format.json { render json: { message: "Successful", categories: @categories, status: 200 } }
     end
   end
@@ -80,7 +81,8 @@ class CategoriesController < ApplicationController
   end
 
   def find_all_categories
-    @categories = Category.all
+    @categories = params[:search].blank? ? Category.all : Category.search(params[:search])
+    @categories.order("name ASC")
   end
 
   def find_category

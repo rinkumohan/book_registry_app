@@ -14,4 +14,5 @@
 //= require turbolinks
 //= require jquery
 //= require books
+//= require categories
 //= require_tree .

@@ -129,6 +129,7 @@ class BooksController < ApplicationController
   end
 
   def find_all_books
-    @books = params[:search].blank? ? Book.all.order("book_name ASC") : Book.search(params[:search]).order("book_name ASC")
+    @books = params[:search].blank? ? Book.all : Book.search(params[:search])
+    @books.order("book_name ASC")
   end
 end
