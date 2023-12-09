@@ -10,7 +10,15 @@ if ActiveRecord::Base.connection.table_exists? 'users'
   if User.all.blank?
     ActiveRecord::Base.connection.execute 'ALTER TABLE users AUTO_INCREMENT = 1;'
     user = User.new(
-          :email                 => "rinku@lub.com",
+          :email                 => "admin@lbu.com",
+          :password              => "123456",
+          :password_confirmation => "123456",
+          :is_admin              => true
+      )
+    user.save!
+
+    user = User.new(
+          :email                 => "rinku@lbu.com",
           :password              => "123456",
           :password_confirmation => "123456"
       )

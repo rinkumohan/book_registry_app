@@ -1,21 +1,26 @@
-<div class="breadcrumbs breadcrumb_style">
-  <span class="fa fa-home"></span> /<span class="active">Dashboard</span>
-</div>
+<% if user_signed_in? %>
+  <div class="breadcrumbs breadcrumb_style">
+    <span class="fa fa-home"></span> /<span class="active">Dashboard</span>
+  </div>
 
-<%=form_tag  root_path, method: :get, id: 'home_index_form' ,:class=>"basic-form no-padding"  do %>
-  <div class="published_books">
-    Published Books
+  <%=form_tag  root_path, method: :get, id: 'home_index_form' ,:class=>"basic-form no-padding"  do %>
+    <div class="published_books">
+      Published Books
+    </div>
+    <div class="nav">
+      <span class="sort_class">Sort on</span> <%= select_tag :sort_on, options_for_select(Book::BOOK_SORT),class:"input_box_style"%>
+      <span class="sort_class">Sort by </span><%= select_tag :sort_by, options_for_select(Book::SORT_ODR),class:"input_box_style"%>
+        <span class="search_class">
+        <%= text_field_tag :search, params[:search] , placeholder: "book name/author/isbn/category"%>
+            <%= submit_tag "Search", :name => nil %>
+      </span>
+    </div>
+  <%end%>
+
+  <div id="index_list_page">
+   <%= render "home_books_list"%>
   </div>
-  <div class="nav">
-    <span class="sort_class">Sort on</span> <%= select_tag :sort_on, options_for_select(Book::BOOK_SORT),class:"input_box_style"%>
-    <span class="sort_class">Sort by </span><%= select_tag :sort_by, options_for_select(Book::SORT_ODR),class:"input_box_style"%>
-      <span class="search_class">
-      <%= text_field_tag :search, params[:search] , placeholder: "book name/author/isbn/category"%>
-          <%= submit_tag "Search", :name => nil %>
-    </span>
-  </div>
+
+<%else%>
+ <h1> Book Registry </h1>
 <%end%>
-
-<div id="index_list_page">
- <%= render "home_books_list"%>
-</div>
