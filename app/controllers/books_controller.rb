@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   before_action :find_book, only: [:edit,:update,:destroy,:publish_book, :unpublish_book,
                                    :calculate_book_price]
   before_action :find_all_books, only: [:index]
+  skip_before_action :verify_authenticity_token, only: [:calculate_book_price]
 
   def index
     if !params[:sort_on].blank? || !params[:sort_by].blank?

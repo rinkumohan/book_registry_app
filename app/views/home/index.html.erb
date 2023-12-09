@@ -6,8 +6,16 @@
   <div class="published_books">
     Published Books
   </div>
+  <div class="nav">
+    <span class="sort_class">Sort on</span> <%= select_tag :sort_on, options_for_select(Book::BOOK_SORT),class:"input_box_style"%>
+    <span class="sort_class">Sort by </span><%= select_tag :sort_by, options_for_select(Book::SORT_ODR),class:"input_box_style"%>
+      <span class="search_class">
+      <%= text_field_tag :search, params[:search] , placeholder: "book name/author/isbn/category"%>
+          <%= submit_tag "Search", :name => nil %>
+    </span>
+  </div>
 <%end%>
 
-<div class="index_list_page">
+<div id="index_list_page">
  <%= render "home_books_list"%>
 </div>

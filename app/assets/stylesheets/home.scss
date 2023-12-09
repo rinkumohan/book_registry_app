@@ -47,7 +47,12 @@
   color: white;
 }
 
-.index_list_page {
+#index_list_page {
+  float: left;
+  width: 85%;
+}
+
+#home_index_form {
   float: left;
   width: 85%;
 }

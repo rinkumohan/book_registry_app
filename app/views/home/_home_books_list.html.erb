@@ -9,6 +9,7 @@
         <th>Price (£)</th>
         <th>Category</th>
         <th>Available count</th>
+        <th>Get Price</th>
       </tr>
     </thead>
     <tbody>
@@ -34,6 +35,11 @@
         </td>
         <td>
           <%=book&.available_count%>
+        </td>
+        <td>
+          <%=link_to calculate_book_price_path(id: book.id) do%>
+            <span class="fa fa-calculator"></span>
+          <%end%>
         </td>
       </tr>
       <%end %>
