@@ -1,7 +1,7 @@
 <div class="login_logout_details">
     <% if user_signed_in? %>
+      <span class="login_detail">Logged in as: <%=current_user.email%></span>
       <%if current_user.is_admin? %>
-        <span class="login_detail">Logged in as: <%=current_user.email%></span>
         <span class="top_bar_link">
           <%= link_to('Home', root_path, class: 'white_link')%>
         </span>
